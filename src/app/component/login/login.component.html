@@ -1,0 +1,50 @@
+<!-- <button (click)="openEmail()">Login</button> -->
+
+<button type="button" (click)="loginPopup()" aria-hidden="true"
+    style="height: 27px;border: none;font-size: small;padding-left: 20px;padding-right: 20px;background-color: white;color: rgb(98, 98, 204);font-weight: var(--font-medium);">
+    {{usernameLabel}}
+</button>
+
+
+<div class="popup-popupEmail" id="popupEmail">
+    <div class="content">
+        <span style="padding-left: 95%;border: none;">
+            <button style="border: none;background-color: white;" type="button" (click)="closeEmail()"><span
+                    style="color: rgb(74, 170, 218);">&times;</span></button>
+        </span>
+        <div class="row">
+
+            <div class="col-md-4" style="background-color:#2874f0 ;height: 412px;">
+                <div>
+                    <h3></h3>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div style="text-align: center;">
+                    <form action="">
+                        <input type="text"  placeholder="Enter Username or Email" id="username"
+                            style="width: 90%;border-top: none;border-left: none;border-right: none;padding-top: 40px;outline:none">
+                        <input type="text"  placeholder="Enter Password" id="password"
+                            style="width: 90%;border-top: none;border-left: none;border-right: none;padding-top: 40px;outline:none">
+                        <br>
+                        <div style="padding-top: 50px;">
+                            <button (click)="login()" type="button"
+                                style="background-color: #FB641B;width: 90%;border: none;border-radius: 2px;height: 40px;">
+                                <h4 style="padding-top: 4px;color: #ffffff;">Login</h4>
+                            </button>
+                        </div>
+                        <div style="padding-top: 50px;">
+                            <button (click)="logout()" type="button"
+                                style="background-color: #FB641B;width: 90%;border: none;border-radius: 2px;height: 40px;">
+                                <h4 style="padding-top: 4px;color: #ffffff;">Logout</h4>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>

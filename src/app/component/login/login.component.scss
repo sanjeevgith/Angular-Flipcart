@@ -1,0 +1,55 @@
+.popup-popupEmail .overlay {
+    position:fixed;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.7);
+    z-index:19;
+    display:none;
+}
+   
+.popup-popupEmail .overlay{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%) scale(0);
+    background:#fff;
+    /* width:95%; */
+    width:80%;
+    height:80%;
+    z-index:20;
+    text-align:center;
+    padding:20px;
+    box-sizing:border-box;
+    font-family:"Open Sans",sans-serif;
+    overflow-y: auto;
+}
+
+.popup-popupEmail .content {
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%) scale(0);
+    background:#fff;
+    /* width:95%; */
+    width:50%;
+    height:80%;
+    z-index:20;
+    text-align:center;
+    padding:10px;
+    box-sizing:border-box;
+    font-family:"Open Sans",sans-serif;
+    // overflow-y: auto;
+}
+   
+.popup-popupEmail.active .overlay {
+    display:block;
+}
+   
+.popup-popupEmail.active .content {
+    transition:all 300ms ease-in-out;
+    transform:translate(-50%,-50%) scale(1);
+}
+
+
