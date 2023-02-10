@@ -36,7 +36,7 @@ export class ProductsComponent implements OnInit {
 
 
   viewproductsbycategories(category: any) {
-    console.log(category);
+    //console.log(category);
     localStorage.setItem("category", category)
 
   }

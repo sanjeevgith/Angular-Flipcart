@@ -23,7 +23,21 @@ export class LoginService {
 
 
 
+  sendusername(userid: any) {
+    console.log(userid);
 
+    localStorage.setItem("userid", userid)
+  }
+
+
+  getuserid() {
+    return localStorage.getItem("userid");
+  }
+
+
+  sendUserToken(token: any) {
+    sessionStorage.setItem("token", token)
+  }
 
 
 

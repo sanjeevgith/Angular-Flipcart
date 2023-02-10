@@ -43,8 +43,19 @@ export class LoginComponent implements OnInit {
       this.loginresponse = responseList;
       (<HTMLInputElement>document.getElementById("username")).value = "";
       (<HTMLInputElement>document.getElementById("password")).value = "";
-      console.log(this.loginresponse);
+      //console.log(this.loginresponse);
       localStorage.setItem("loginData", this.loginresponse.username)
+      // console.log("userid", this.loginresponse._id);
+
+      //send userid to login service
+      var userid = this.loginresponse._id
+      this.loginservive.sendusername(userid)
+
+      //send token login service
+      var token = this.loginresponse.accessToken
+      this.loginservive.sendUserToken(token)
+
+      // localStorage.setItem("userid", this.loginresponse.id)
       var name = localStorage.getItem("loginData")
       this.usernameLabel = name
       console.log(name);
@@ -65,7 +76,7 @@ export class LoginComponent implements OnInit {
 
 
 
-  closeEmail() {
+  closePopup() {
     (<HTMLInputElement>document.getElementById("popupEmail")).classList.toggle("active");
   }
 

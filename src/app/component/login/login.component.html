@@ -9,7 +9,7 @@
 <div class="popup-popupEmail" id="popupEmail">
     <div class="content">
         <span style="padding-left: 95%;border: none;">
-            <button style="border: none;background-color: white;" type="button" (click)="closeEmail()"><span
+            <button style="border: none;background-color: white;" type="button" (click)="closePopup()"><span
                     style="color: rgb(74, 170, 218);">&times;</span></button>
         </span>
         <div class="row">
@@ -28,13 +28,13 @@
                             style="width: 90%;border-top: none;border-left: none;border-right: none;padding-top: 40px;outline:none">
                         <br>
                         <div style="padding-top: 50px;">
-                            <button (click)="login()" type="button"
+                            <button (click)="login();closePopup()" type="button"
                                 style="background-color: #FB641B;width: 90%;border: none;border-radius: 2px;height: 40px;">
                                 <h4 style="padding-top: 4px;color: #ffffff;">Login</h4>
                             </button>
                         </div>
                         <div style="padding-top: 50px;">
-                            <button (click)="logout()" type="button"
+                            <button (click)="logout();closePopup()" type="button"
                                 style="background-color: #FB641B;width: 90%;border: none;border-radius: 2px;height: 40px;">
                                 <h4 style="padding-top: 4px;color: #ffffff;">Logout</h4>
                             </button>

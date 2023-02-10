@@ -13,7 +13,7 @@ export class ProductsService {
 
 
   getproductcategorywise(cat: any) {
-    console.log(cat);
+   // console.log(cat);
     
     return this.http.get("http://localhost:5000/api/products?category=" + cat);
   }
@@ -22,8 +22,8 @@ export class ProductsService {
   
 
   getlatestproductcategorywise(top: any) {
-    console.log(top);
-    console.log("http://localhost:5000/api/products?new=" + top);
+    // console.log(top);
+    //console.log("http://localhost:5000/api/products?new=" + top);
     
     return this.http.get("http://localhost:5000/api/products?new=" + top);
   }
