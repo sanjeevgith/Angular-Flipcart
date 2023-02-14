@@ -68,7 +68,9 @@ export class LoginComponent implements OnInit {
 
   logout() {
     localStorage.clear();
+    localStorage.removeItem('token');
     this.usernameLabel = "Login";
+    return true;
   }
 
 

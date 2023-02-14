@@ -30,13 +30,31 @@ export class LoginService {
   }
 
 
+  isLoggedIn()
+  {
+      let token = localStorage.getItem("token");
+      if(token ==undefined || token===''||token==null){
+        return false;
+      }else{
+        return true;
+      }
+  }
+
+
   getuserid() {
     return localStorage.getItem("userid");
   }
 
 
   sendUserToken(token: any) {
-    sessionStorage.setItem("token", token)
+    localStorage.setItem("token", token)
+    return true;
+  }
+
+
+
+  getToken(){
+    return localStorage.getItem('token')
   }
 
 

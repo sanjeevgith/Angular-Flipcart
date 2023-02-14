@@ -6,6 +6,7 @@ import { LoginComponent } from './component/login/login.component';
 import { ProductsCategoriesComponent } from './component/products-categories/products-categories.component';
 import { ProductsComponent } from './component/products/products.component';
 import { SignupComponent } from './component/signup/signup.component';
+import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
   {
@@ -31,11 +32,13 @@ const routes: Routes = [
   },
   {
     path:'addtocart',
-    component:AddtocartComponent
+    component:AddtocartComponent,
+    canActivate:[AuthGuard]
   },
   {
     path:'addtobuy',
-    component:AddtobuyComponent
+    component:AddtobuyComponent,
+    canActivate:[AuthGuard]
   },
 ];
 

@@ -14,6 +14,7 @@ import { ProductsCategoriesComponent } from './component/products-categories/pro
 import { AddtocartComponent } from './component/addtocart/addtocart.component';
 import { AddtobuyComponent } from './component/addtobuy/addtobuy.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,7 @@ import { AddtobuyComponent } from './component/addtobuy/addtobuy.component';
     NavbarComponent,
     ProductsCategoriesComponent,
     AddtocartComponent,
-    AddtobuyComponent
+    AddtobuyComponent,
   ],
   imports: [
     BrowserModule,

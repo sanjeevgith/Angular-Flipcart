@@ -17,5 +17,41 @@
 }
 
 .buttondiv{
-    padding-top: 100px;
+    padding-top: 10px;
 }
+
+
+
+  .counter {
+      width: 10px;
+      display: flex;
+      padding-top: 90px;
+     
+  }
+  .counter input {
+      width: 50px;
+      border: 0;
+      line-height: 30px;
+      font-size: 20px;
+      text-align: center;
+    //   background: #0052cc;
+      background: white;
+    //   color: #fff;
+      color: #060606;
+      appearance: none;
+      outline: 0;
+      border: 1px solid;
+  }
+  .counter span {
+      display: block;
+      font-size: 25px;
+      padding: 0 10px;
+      cursor: pointer;
+      color: #0052cc;
+      user-select: none;
+  }
+
+
+  .selctdiv{
+    padding-top: 90px;
+  }
