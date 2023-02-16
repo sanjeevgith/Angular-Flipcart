@@ -11,8 +11,8 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import {HttpClientModule} from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductsCategoriesComponent } from './component/products-categories/products-categories.component';
-import { AddtocartComponent } from './component/addtocart/addtocart.component';
 import { AddtobuyComponent } from './component/addtobuy/addtobuy.component';
+import { AddproductsComponent } from './component/admin/addproducts/addproducts.component';
 
 
 @NgModule({
@@ -24,8 +24,8 @@ import { AddtobuyComponent } from './component/addtobuy/addtobuy.component';
     FooterComponent,
     NavbarComponent,
     ProductsCategoriesComponent,
-    AddtocartComponent,
     AddtobuyComponent,
+    AddproductsComponent,
   ],
   imports: [
     BrowserModule,

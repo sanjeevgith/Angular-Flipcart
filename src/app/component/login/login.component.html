@@ -22,18 +22,22 @@
             <div class="col-md-8">
                 <div style="text-align: center;">
                     <form action="">
-                        <input type="text"  placeholder="Enter Username or Email" id="username"
+                        <input type="text" placeholder="Enter Username or Email" id="username"
                             style="width: 90%;border-top: none;border-left: none;border-right: none;padding-top: 40px;outline:none">
-                        <input type="text"  placeholder="Enter Password" id="password"
+                        <input type="text" placeholder="Enter Password" id="password"
                             style="width: 90%;border-top: none;border-left: none;border-right: none;padding-top: 40px;outline:none">
                         <br>
-                        <div style="padding-top: 50px;">
+                        <div style="text-align: start;margin-left: 20px;margin-top: 10px;">
+                            <!-- <a routerLink="/signup">Create Account</a> -->
+                            <a routerLink="/signup">Create Account?</a>
+                        </div>
+                        <div style="padding-top: 30px;">
                             <button (click)="login();closePopup()" type="button"
                                 style="background-color: #FB641B;width: 90%;border: none;border-radius: 2px;height: 40px;">
                                 <h4 style="padding-top: 4px;color: #ffffff;">Login</h4>
                             </button>
                         </div>
-                        <div style="padding-top: 50px;">
+                        <div style="padding-top: 40px;">
                             <button (click)="logout();closePopup()" type="button"
                                 style="background-color: #FB641B;width: 90%;border: none;border-radius: 2px;height: 40px;">
                                 <h4 style="padding-top: 4px;color: #ffffff;">Logout</h4>
