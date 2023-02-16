@@ -1,38 +1,45 @@
-<div class="container">
-    <div class="row">
-        <div class="card" style="width: 400px;">
-            <h3 style="text-align: center;">Add Products</h3>
+<div class="maincontainer">
+    <div class="container">
+        <div class="row">
+            <div class="card" style="width: 400px;">
+                <h3 style="text-align: center;">Add Products</h3>
 
-            <form action="">
-                <div class="mt-3">
-                    <input type="text" placeholder="Title" class="form-control">
-                </div>
-                <div class="mt-3">
-                    <input type="text" placeholder="Description" class="form-control">
-                </div>
-                <div class="mt-3">
-                    <input type="text" placeholder="Image URL" class="form-control">
-                </div>
-                <div class="mt-3">
-                    <input type="text" placeholder="Categories" class="form-control">
-                </div>
-                <div class="mt-3">
-                    <input type="text" placeholder="Size" class="form-control">
-                </div>
-                <div class="mt-3">
-                    <input type="text" placeholder="Color" class="form-control">
-                </div>
-                <div class="mt-3">
-                    <input type="number" placeholder="Price" class="form-control">
+                <form [formGroup]="adddata" (ngSubmit)="sumbit();reset()">
+                    <div class="mt-3">
+                        <input type="text" placeholder="Title" class="form-control" formControlName="title">
+                    </div>
+                    <div class="mt-3">
+                        <input type="text" placeholder="Description" class="form-control" formControlName="desc">
+                    </div>
+                    <div class="mt-3">
+                        <input type="file" placeholder="Image URL" class="form-control"
+                            (change)="onImageChange($event)">
+                    </div>
+                    <div class="mt-3">
+                        <select class="form-control" formControlName="categories">
+                            <option value="" id="">Select Category</option>
+                            <option [value]="item" [id]="item" *ngFor="let item of compare_list">
+                                {{ item }}</option>
+                        </select>
+                    </div>
+                    <div class="mt-3">
+                        <input type="text" placeholder="Size" class="form-control" formControlName="size">
+                    </div>
+                    <div class="mt-3">
+                        <input type="text" placeholder="Color" class="form-control" formControlName="color">
+                    </div>
+                    <div class="mt-3">
+                        <input type="number" placeholder="Price" class="form-control" formControlName="price">
 
-                </div>
+                    </div>
 
-                <div class="mt-3" style="text-align: center;">
-                    <button (click)="submit()">Submit</button>
-                </div>
+                    <div class="mt-3" style="text-align: center;padding-bottom: 10px;">
+                        <button type="submit" class="btn btn-success" style="width: 50%;">Add</button>
+                    </div>
 
 
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 </div>

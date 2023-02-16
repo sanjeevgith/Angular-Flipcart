@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductsCategoriesComponent } from './component/products-categories/products-categories.component';
 import { AddtobuyComponent } from './component/addtobuy/addtobuy.component';
 import { AddproductsComponent } from './component/admin/addproducts/addproducts.component';
+import { PaymentComponent } from './component/payment/payment.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { AddproductsComponent } from './component/admin/addproducts/addproducts.
     ProductsCategoriesComponent,
     AddtobuyComponent,
     AddproductsComponent,
+    PaymentComponent,
   ],
   imports: [
     BrowserModule,

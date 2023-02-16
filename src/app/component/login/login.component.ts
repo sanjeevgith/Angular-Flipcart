@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
   }
 
   usernameLabel: any;
-  loginresponse: any
+  loginresponse: any;
   login() {
     var username = (<HTMLInputElement>document.getElementById("username")).value;
     var password = (<HTMLInputElement>document.getElementById("password")).value;
