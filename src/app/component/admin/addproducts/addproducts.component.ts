@@ -16,7 +16,7 @@ export class AddproductsComponent implements OnInit {
 
   compare_list = ["toy", "travel", "twowheeler", "grocery", "fasion", "home", "electronics", "mobile"]
 
-
+  admin: any
   ngOnInit(): void {
     this.adddata = this.fb.group({
       title: ['', [Validators.required]],
@@ -27,6 +27,8 @@ export class AddproductsComponent implements OnInit {
       color: ['', [Validators.required]],
       price: ['', [Validators.required]],
     })
+
+    this.admin = localStorage.getItem("admin")
   }
 
   get agentcontrols() {
@@ -53,12 +55,20 @@ export class AddproductsComponent implements OnInit {
 
   finalresponseList: any
   sumbit() {
-    console.log(this.adddata.value);
-    this.addproductservice.addproduct(this.adddata.value).subscribe(responseList => {
-      this.finalresponseList = responseList;
-      console.log(this.finalresponseList);
 
-    })
+    if (this.admin == "true") {
+      console.log(this.adddata.value);
+      this.addproductservice.addproduct(this.adddata.value).subscribe(responseList => {
+        this.finalresponseList = responseList;
+        console.log(this.finalresponseList);
+
+      })
+    }
+    else {
+      alert("Unauthorised User");
+    }
+
+
   }
 
 

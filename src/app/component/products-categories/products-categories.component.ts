@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 import { ProductsService } from 'src/app/services/products.service';
 
@@ -13,16 +14,19 @@ export class ProductsCategoriesComponent implements OnInit {
 
 
 
-  constructor(private productsService: ProductsService, private loginservice: LoginService) { }
+  constructor(private productsService: ProductsService, private loginservice: LoginService,private router:Router) { }
 
 
 
   compare_list = [2, 3, 4, 5]
-
+  addtocarttext = "Add to cart";
   category: any
   ngOnInit(): void {
     this.category = localStorage.getItem("category")
     // console.log(this.category, "this.category");
+    if(this.category == null ){
+      this.router.navigate(['products'])
+    }
     this.searchProductsBycategory()
     this.searchTopProducts()
   }
@@ -82,6 +86,9 @@ export class ProductsCategoriesComponent implements OnInit {
     this.productsService.addcart(userid, products).subscribe(responseList => {
       this.finalAddcartResponse = responseList;
       console.log("Api Response=", this.finalAddcartResponse);
+      alert("Product Added to Cart")
+
+      
     })
 
   }
