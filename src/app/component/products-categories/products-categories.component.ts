@@ -55,12 +55,22 @@ export class ProductsCategoriesComponent implements OnInit {
   compareChange(event: any) {
     var data = event.target.value;
     console.log(data);
-    this.quantityvalue = data
+    if (data == null && data == undefined) {
+      this.quantityvalue = 1
+    }
+    else {
+      this.quantityvalue = data
+    }
   }
+
+
 
   quantityvalue: any
   finalAddcartResponse: any
   addtocart(data: any) {
+    if (this.quantityvalue == undefined && this.quantityvalue == null) {
+      this.quantityvalue = 1
+    }
     var userid = this.loginservice.getuserid()
     console.log("userid", userid);
     console.log("Product", data);
@@ -88,6 +98,12 @@ export class ProductsCategoriesComponent implements OnInit {
     else if (this.quantityvalue == 5) {
       quantV = data.price * 5
     }
+    else {
+
+    }
+
+    console.log(this.quantityvalue);
+
     products.productId = data._id
     products.img = data.img
     products.price = quantV
