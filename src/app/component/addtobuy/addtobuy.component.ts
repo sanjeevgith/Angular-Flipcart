@@ -21,6 +21,7 @@ export class AddtobuyComponent implements OnInit {
 
   getdata() {
     this.plusedata = 0
+    this.finaltotal = [];
     this.addtobuy.getCartProduct().subscribe(responseList => {
       this.FinalResponseList = responseList;
       // console.log("addtoCardDataByUserid", this.FinalResponseList);

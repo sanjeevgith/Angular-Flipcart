@@ -14,7 +14,7 @@ export class ProductsCategoriesComponent implements OnInit {
 
 
 
-  constructor(private productsService: ProductsService, private loginservice: LoginService,private router:Router) { }
+  constructor(private productsService: ProductsService, private loginservice: LoginService, private router: Router) { }
 
 
 
@@ -24,7 +24,7 @@ export class ProductsCategoriesComponent implements OnInit {
   ngOnInit(): void {
     this.category = localStorage.getItem("category")
     // console.log(this.category, "this.category");
-    if(this.category == null ){
+    if (this.category == null) {
       this.router.navigate(['products'])
     }
     this.searchProductsBycategory()
@@ -52,22 +52,18 @@ export class ProductsCategoriesComponent implements OnInit {
     }
   }
 
-
   compareChange(event: any) {
     var data = event.target.value;
     console.log(data);
     this.quantityvalue = data
   }
 
-
   quantityvalue: any
   finalAddcartResponse: any
   addtocart(data: any) {
-
     var userid = this.loginservice.getuserid()
     console.log("userid", userid);
     console.log("Product", data);
-
     var products = {
       productId: "",
       quantity: "",
@@ -75,10 +71,26 @@ export class ProductsCategoriesComponent implements OnInit {
       price: "",
       title: ""
     }
+    var quantV: any
     // this.quantityvalue = (<HTMLInputElement>document.getElementById("quantityselect")).value;
+    if (this.quantityvalue == 1) {
+      quantV = data.price * 1
+    }
+    else if (this.quantityvalue == 2) {
+      quantV = data.price * 2
+    }
+    else if (this.quantityvalue == 3) {
+      quantV = data.price * 3
+    }
+    else if (this.quantityvalue == 4) {
+      quantV = data.price * 4
+    }
+    else if (this.quantityvalue == 5) {
+      quantV = data.price * 5
+    }
     products.productId = data._id
     products.img = data.img
-    products.price = data.price
+    products.price = quantV
     products.title = data.title
     products.quantity = this.quantityvalue
     console.log("products", products);
@@ -86,11 +98,9 @@ export class ProductsCategoriesComponent implements OnInit {
     this.productsService.addcart(userid, products).subscribe(responseList => {
       this.finalAddcartResponse = responseList;
       console.log("Api Response=", this.finalAddcartResponse);
+      quantV = []
       alert("Product Added to Cart")
-
-      
     })
-
   }
 
 
