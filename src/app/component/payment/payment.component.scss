@@ -1,17 +1,29 @@
-
-
-.container{
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 
-.card{
+.card {
     width: 350px;
-    margin-top: 50px;
+    margin-top: 58px;
 }
 
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    opacity: 0.3; /* Firefox */
-  }
+::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    opacity: 0.3;
+    /* Firefox */
+}
+
+
+
+
+
+
+
+
+
+
+
+//end spinner
