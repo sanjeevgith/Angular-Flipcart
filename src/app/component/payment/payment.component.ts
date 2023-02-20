@@ -13,14 +13,11 @@ export class PaymentComponent implements OnInit {
   constructor() { }
 
 
-  amountpay = 121;
-
-
-
+  amountpay = localStorage.getItem("finalprice")
 
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    
   }
 
 

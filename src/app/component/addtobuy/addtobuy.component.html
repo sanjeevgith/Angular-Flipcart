@@ -5,7 +5,8 @@
     <div class="row">
         <div class="col-md-8">
 
-            <div class="card" *ngFor="let data of FinalResponseList;let i=index" style="background-color: rgb(247, 250, 251);">
+            <div class="card" *ngFor="let data of FinalResponseList;let i=index"
+                style="background-color: rgb(247, 250, 251);">
                 <div class="card-body">
                     <p style="background-color: rgb(218, 218, 218);">Product Id : {{data._id}}</p>
                     <table>
@@ -66,7 +67,7 @@
                         <tr>&nbsp;</tr>
                         <tr>
                             <a routerLink="/payment">
-                                <button
+                                <button (click)="checkout()"
                                     style="width: 120%;background-color: rgb(149, 196, 216);border: 1px solid;height: 50px;">Checkout</button>
                             </a>
                         </tr>

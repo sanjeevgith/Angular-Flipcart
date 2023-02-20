@@ -55,12 +55,7 @@ export class ProductsCategoriesComponent implements OnInit {
   compareChange(event: any) {
     var data = event.target.value;
     console.log(data);
-    if (data == null && data == undefined) {
-      this.quantityvalue = 1
-    }
-    else {
-      this.quantityvalue = data
-    }
+    this.quantityvalue = data
   }
 
 
@@ -115,6 +110,7 @@ export class ProductsCategoriesComponent implements OnInit {
       this.finalAddcartResponse = responseList;
       console.log("Api Response=", this.finalAddcartResponse);
       quantV = []
+      this.quantityvalue = 1
       alert("Product Added to Cart")
     })
   }

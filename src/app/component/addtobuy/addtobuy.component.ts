@@ -39,11 +39,15 @@ export class AddtobuyComponent implements OnInit {
         // console.log(this.finaltotal);
         this.plusedata += this.finaltotal[i]
         // console.log(this.plusedata);
-
+        var finalprice:any = this.plusedata
+        localStorage.setItem("finalprice",finalprice)
       }
     })
   }
 
+  checkout(){
+
+  }
 
 
   ngOnInit(): void {
