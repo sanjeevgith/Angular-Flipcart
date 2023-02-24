@@ -17,7 +17,7 @@
 }
 
 .navbar-expand-lg {
-    padding-left: 150px
+    padding-left: 50px
 }
 
 
@@ -117,7 +117,7 @@
 
 @media only screen and (max-width: 600px) {
     #searchinput {
-        width: 100px;
+        width: 80%;
     }
 
     .navbar-head {
@@ -127,12 +127,18 @@
     .navbar {
         padding-left: 37%;
     }
-    .form-search{
+
+    .form-search {
         padding-left: 30%;
-        
+
     }
-    .nav-item{
-        padding-left: 10%;
+
+    .nav-item {
+        padding-left: 7%;
+    }
+
+    .navbar-expand-lg {
+        padding-left: 15px
     }
 }
 

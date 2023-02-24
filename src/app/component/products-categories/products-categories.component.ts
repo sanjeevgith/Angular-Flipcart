@@ -28,7 +28,7 @@ export class ProductsCategoriesComponent implements OnInit {
     this.route.params.subscribe(params => {
       var newdata = params['searchdata'];
       console.log("search response", newdata);
-      if (newdata != null) {
+      if (newdata != null && newdata != undefined) {
         this.productsService.getproductcategorywise(newdata).subscribe(responseList => {
           this.finalProducts = responseList
           console.log("search response", this.finalProducts);
@@ -42,7 +42,6 @@ export class ProductsCategoriesComponent implements OnInit {
         this.searchProductsBycategory()
       }
     });
-
 
   }
 

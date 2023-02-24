@@ -29,8 +29,7 @@ export class NavbarComponent implements OnInit {
   searchdata: any
   search() {
     this.searchdata = (<HTMLInputElement>document.getElementById("searchinput")).value;
-    console.log(this.searchdata);
-    localStorage.setItem("searchdata", this.searchdata);
+    // console.log(this.searchdata);
     this.router.navigate(["productcategories",this.searchdata]);
 
   }
