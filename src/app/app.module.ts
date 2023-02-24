@@ -14,7 +14,8 @@ import { ProductsCategoriesComponent } from './component/products-categories/pro
 import { AddtobuyComponent } from './component/addtobuy/addtobuy.component';
 import { AddproductsComponent } from './component/admin/addproducts/addproducts.component';
 import { PaymentComponent } from './component/payment/payment.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -28,13 +29,19 @@ import { PaymentComponent } from './component/payment/payment.component';
     AddtobuyComponent,
     AddproductsComponent,
     PaymentComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    NgxSpinnerModule
+
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

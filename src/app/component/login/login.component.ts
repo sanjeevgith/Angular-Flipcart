@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class LoginComponent implements OnInit {
 
 
 
-  constructor(private loginservive: LoginService) { }
+  constructor(private loginservive: LoginService,private router:Router) { }
 
 
 
@@ -43,7 +44,11 @@ export class LoginComponent implements OnInit {
       this.loginresponse = responseList;
       (<HTMLInputElement>document.getElementById("username")).value = "";
       (<HTMLInputElement>document.getElementById("password")).value = "";
-      //console.log(this.loginresponse);
+
+      // console.log(this.loginresponse.isAdmin);
+
+       localStorage.setItem("admin",this.loginresponse.isAdmin)
+
       localStorage.setItem("loginData", this.loginresponse.username)
       // console.log("userid", this.loginresponse._id);
 
@@ -58,7 +63,7 @@ export class LoginComponent implements OnInit {
       // localStorage.setItem("userid", this.loginresponse.id)
       var name = localStorage.getItem("loginData")
       this.usernameLabel = name
-      console.log(name);
+      // console.log(name);
     })
   }
   clear() {
@@ -70,6 +75,7 @@ export class LoginComponent implements OnInit {
     localStorage.clear();
     localStorage.removeItem('token');
     this.usernameLabel = "Login";
+    this.router.navigate(['products'])
     return true;
   }
 

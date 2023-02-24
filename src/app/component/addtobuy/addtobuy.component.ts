@@ -18,12 +18,17 @@ export class AddtobuyComponent implements OnInit {
   FinalResponseList: any
   plusedata = 0;
   inputBalanceQuantity: any = []
-  ngOnInit(): void {
 
+  getdata() {
+    this.plusedata = 0
+    this.finaltotal = [];
     this.addtobuy.getCartProduct().subscribe(responseList => {
       this.FinalResponseList = responseList;
       // console.log("addtoCardDataByUserid", this.FinalResponseList);
       for (let i = 0; i < this.FinalResponseList.length; i++) {
+
+        localStorage.setItem("cartitemcount", this.FinalResponseList.length)
+
         this.inputBalanceQuantity = 0;
         for (let j = 0; j < this.FinalResponseList[i].products.length; j++) {
 
@@ -34,12 +39,24 @@ export class AddtobuyComponent implements OnInit {
         // console.log(this.finaltotal);
         this.plusedata += this.finaltotal[i]
         // console.log(this.plusedata);
-
+        var finalprice:any = this.plusedata
+        localStorage.setItem("finalprice",finalprice)
       }
-
     })
+  }
+
+  checkout(){
 
   }
+
+
+  ngOnInit(): void {
+    this.getdata();
+  }
+
+
+
+
 
 
 
@@ -51,7 +68,7 @@ export class AddtobuyComponent implements OnInit {
     this.addtobuy.deletCart(data).subscribe(responseList => {
       this.finalcartresponse = responseList;
       console.log("cart delete response==", this.finalcartresponse);
-      this.ngOnInit();
+      this.getdata();
 
     })
   }

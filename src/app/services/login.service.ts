@@ -40,6 +40,15 @@ export class LoginService {
       }
   }
 
+  isAdminIn(){
+    let admin = localStorage.getItem("admin");
+    if(admin ="false"){
+      return false;
+    }else{
+      return true;
+    }
+  }
+
 
   getuserid() {
     return localStorage.getItem("userid");

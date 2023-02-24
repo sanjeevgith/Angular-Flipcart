@@ -1,1 +1,74 @@
-<p>payment works!</p>
+<div class="container">
+
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-md-6">
+                    <h6 style="padding-top: 2px;"><a routerLink="/addtobuy" style="font-size: large;">←</a>Payment
+                        Details</h6>
+                </div>
+                <div class="col-md-6">
+                    <span><img src="../../../assets/cardico.jpg" height="30px" width="100%"></span>
+                </div>
+            </div>
+
+        </div>
+        <div class="card-body">
+            <div>
+                <p>Amount : {{amountpay}}</p>
+            </div>
+            <div>
+                <label>CARD NUMBER</label>
+            </div>
+            <div>
+                <input class="form-control" type="number" placeholder="XXXX XXXX XXXX XXXX"
+                    onkeypress="if(this.value.length==16) return false;">
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mt-3">
+                        <label>EXPIRATION DATE</label>
+                    </div>
+                    <div>
+                        <input class="form-control" type="tel" placeholder="MM / YY"
+                            onkeypress="if(this.value.length==5) return false;">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mt-3">
+                        <label>CV CODE</label>
+                    </div>
+                    <div>
+                        <input class="form-control" type="number" placeholder="CVC" min="1" max="999"
+                            onkeypress="if(this.value.length==3) return false;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-3">
+                <label>COUPON CODE</label>
+            </div>
+            <div>
+                <input class="form-control" type="text" placeholder="SUWSW28828SH"
+                    onkeypress="if(this.value.length==12) return false;">
+            </div>
+
+            <div class="mt-3">
+                <button type="button" class="btn btn-success" (click)="paypopup()"
+                    style="width: 100%;border: none;height: 40px;border-radius: 5px;">Pay Now</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<ngx-spinner size="medium" [type]="typeSelected">
+    <p style="color: aliceblue;">Do Not Close or Refresh Page!</p>
+</ngx-spinner>
+
+
+
+

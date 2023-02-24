@@ -48,6 +48,8 @@ export class ProductsService {
     }
 
     console.log(data);
+    console.log(this.headers);
+    
 
     return this.http.post("http://localhost:5000/api/cart", data, {
       headers: this.headers
