@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 import { ProductsService } from 'src/app/services/products.service';
 
@@ -14,7 +14,7 @@ export class ProductsCategoriesComponent implements OnInit {
 
 
 
-  constructor(private productsService: ProductsService, private loginservice: LoginService, private router: Router) { }
+  constructor(private productsService: ProductsService, private loginservice: LoginService, private router: Router, private route: ActivatedRoute) { }
 
 
 
@@ -24,59 +24,53 @@ export class ProductsCategoriesComponent implements OnInit {
   searchdata: any
   ngOnInit(): void {
     this.category = localStorage.getItem("category")
-    // this.searchdata = localStorage.getItem("searchdata")
-    // //   window.location.reload();
-    // console.log(this.searchdata);
 
-    // console.log(this.category, "this.category");
-    if (this.category == null) {
-      this.router.navigate(['products'])
-    }
-    this.searchProductsBycategory()
-    this.searchTopProducts()
-  }
+    this.route.params.subscribe(params => {
+      var newdata = params['searchdata'];
+      console.log("search response", newdata);
+      if (newdata != null) {
+        this.productsService.getproductcategorywise(newdata).subscribe(responseList => {
+          this.finalProducts = responseList
+          console.log("search response", this.finalProducts);
+        })
+      }
+      else if (this.category == "true") {
+        this.searchTopProducts()
+      }
+      else if (this.category != null && this.category != undefined) {
+        this.finalProducts = []
+        this.searchProductsBycategory()
+      }
+    });
 
-
-  ngDoCheck(): void {
-    var searchdata = localStorage.getItem("searchdata")
-    console.log(searchdata);
-    this.productsService.getproductcategorywise(searchdata).subscribe(responseList => {
-      this.finalProducts = responseList
-      console.log("this.finalProducts", this.finalProducts);
-    })
-   
 
   }
-
 
 
   finalProducts: any
   searchProductsBycategory() {
     this.productsService.getproductcategorywise(this.category).subscribe(responseList => {
       this.finalProducts = responseList
-      console.log("this.finalProducts", this.finalProducts);
+      console.log("my categories", this.finalProducts);
     })
-    // }
-
   }
 
 
   searchTopProducts() {
-    // console.log(this.category);
-    if (this.category == "true") {
-      this.productsService.getlatestproductcategorywise(this.category).subscribe(responseList => {
-        this.finalProducts = responseList
-        console.log("this.finalProducts top 15", this.finalProducts);
-      })
-    }
+    this.productsService.getlatestproductcategorywise(this.category).subscribe(responseList => {
+      this.finalProducts = responseList
+      console.log("this.finalProducts top 15", this.finalProducts);
+    })
   }
+
+
+
 
   compareChange(event: any) {
     var data = event.target.value;
     console.log(data);
     this.quantityvalue = data
   }
-
 
 
   quantityvalue: any

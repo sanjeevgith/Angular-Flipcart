@@ -32,6 +32,10 @@ const routes: Routes = [
     component: ProductsCategoriesComponent
   },
   {
+    path:'productcategories/:searchdata',
+    component:ProductsCategoriesComponent
+  },
+  {
     path: 'addtobuy',
     component: AddtobuyComponent,
     canActivate: [AuthGuard]

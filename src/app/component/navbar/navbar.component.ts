@@ -14,25 +14,36 @@ export class NavbarComponent implements OnInit {
 
   constructor(private addtobuy: AddtobuyService, private router: Router) { }
 
+
+
+
+
+
   counter: any
   ngOnInit(): void {
-
-
+    
   }
 
 
 
+  searchdata: any
   search() {
-    var searchdata = (<HTMLInputElement>document.getElementById("searchinput")).value;
-    console.log(searchdata);
-
-    localStorage.setItem("searchdata", searchdata);
-    this.router.navigate(["productcategories"]);
+    this.searchdata = (<HTMLInputElement>document.getElementById("searchinput")).value;
+    console.log(this.searchdata);
+    localStorage.setItem("searchdata", this.searchdata);
+    this.router.navigate(["productcategories",this.searchdata]);
 
   }
 
 
+  clearlocalstorage() {
 
+  }
+
+
+  inputclick(){
+
+  }
 
 
 }
