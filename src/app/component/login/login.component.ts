@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -12,15 +13,14 @@ export class LoginComponent implements OnInit {
 
 
 
-  constructor(private loginservive: LoginService,private router:Router) { }
+  constructor(private spinnerService: NgxSpinnerService, private loginservive: LoginService, private router: Router) { }
 
 
 
   ngOnInit(): void {
-
     var name = localStorage.getItem("loginData")
     if (name) {
-      this.usernameLabel = name
+      this.usernameLabel = name;
     } else {
       this.usernameLabel = "Login"
     }
@@ -31,6 +31,14 @@ export class LoginComponent implements OnInit {
 
 
   loginPopup() {
+    var name = localStorage.getItem("loginData")
+    if (name) {
+      (<HTMLInputElement>document.getElementById("loginbutton")).style.display = "none";
+      (<HTMLInputElement>document.getElementById("logoutbutton")).style.display = "block";
+    } else {
+      (<HTMLInputElement>document.getElementById("loginbutton")).style.display = "block";
+      (<HTMLInputElement>document.getElementById("logoutbutton")).style.display = "none";
+    }
     (<HTMLInputElement>document.getElementById("popupEmail")).classList.toggle("active");
   }
 
@@ -46,11 +54,10 @@ export class LoginComponent implements OnInit {
       (<HTMLInputElement>document.getElementById("password")).value = "";
 
       // console.log(this.loginresponse.isAdmin);
+      localStorage.setItem("admin", this.loginresponse.isAdmin)
 
-       localStorage.setItem("admin",this.loginresponse.isAdmin)
-
+      //getusername for labal
       localStorage.setItem("loginData", this.loginresponse.username)
-      // console.log("userid", this.loginresponse._id);
 
       //send userid to login service
       var userid = this.loginresponse._id
@@ -63,7 +70,6 @@ export class LoginComponent implements OnInit {
       // localStorage.setItem("userid", this.loginresponse.id)
       var name = localStorage.getItem("loginData")
       this.usernameLabel = name
-      // console.log(name);
     })
   }
   clear() {
