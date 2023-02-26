@@ -137,6 +137,16 @@ export class ProductsCategoriesComponent implements OnInit {
 
 
 
+  lowtohigh() {
+    console.log("lowtohigh");  
+  
+  }
+
+  hightolow() {
+    console.log("hightolow");
+   
+  }
+
 
 
   //quantity selection

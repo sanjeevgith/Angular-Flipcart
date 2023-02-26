@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { AddproductsService } from '../addproducts.service';
 
 @Component({
@@ -11,7 +13,7 @@ export class AddproductsComponent implements OnInit {
 
 
   adddata!: FormGroup
-  constructor(private addproductservice: AddproductsService, private fb: FormBuilder) { }
+  constructor(private spinnerService: NgxSpinnerService,private addproductservice: AddproductsService, private fb: FormBuilder,private router:Router) { }
 
 
   compare_list = ["toy", "travel", "twowheeler", "grocery", "fasion", "home", "electronics", "mobile"]
@@ -29,6 +31,12 @@ export class AddproductsComponent implements OnInit {
     })
 
     this.admin = localStorage.getItem("admin")
+    if (this.admin == "true") {
+       alert("Wlcome to admin page")
+    }
+    else{
+      this.router.navigate(["products"])
+    }
   }
 
   get agentcontrols() {
@@ -55,12 +63,15 @@ export class AddproductsComponent implements OnInit {
 
   finalresponseList: any
   sumbit() {
-
     if (this.admin == "true") {
+      this.spinnerService.show();
       console.log(this.adddata.value);
       this.addproductservice.addproduct(this.adddata.value).subscribe(responseList => {
         this.finalresponseList = responseList;
         console.log(this.finalresponseList);
+        setTimeout(() => {
+          this.spinnerService.hide();
+        }, 3000);
 
       })
     }

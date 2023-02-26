@@ -8,12 +8,33 @@
                 <div class="card-header">
                     <h5>Filters</h5>
                 </div>
-                <div class="card-body">
+                <div class="card-body" >
+                    <label ><b>SORT BY</b> </label> <br>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" (click)="lowtohigh()" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                           Price - Low To High
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" (click)="hightolow()" id="flexRadioDefault2" checked>
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            Price - High To Low
+                        </label>
+                      </div><br>
+
+
+                      <label ><b>FILTER</b> </label> <br>
+                     
+
+
                 </div>
+                
             </div>
         </div>
         <div class="col-md-9">
-            <div class="card" *ngFor="let data of finalProducts" style="background-color: rgb(246, 241, 241);margin-bottom: 10px;">
+            <div class="card" *ngFor="let data of finalProducts "
+                style="background-color: rgb(246, 241, 241);margin-bottom: 10px;">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-3">
@@ -49,7 +70,7 @@
                             </div>
                             <!-- end quantity -->
                             <div class="buttondiv">
-                                <a style="padding: 5px;" >
+                                <a style="padding: 5px;">
                                     <button (click)="addtocart(data)" class="addtocart"><svg class="_1KOMV2" width="16"
                                             height="16" viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg">
                                             <path class=""
@@ -75,5 +96,3 @@
         </div>
     </div>
 </div>
-
-
