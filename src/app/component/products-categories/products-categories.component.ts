@@ -108,9 +108,7 @@ export class ProductsCategoriesComponent implements OnInit {
     else {
 
     }
-
     console.log(this.quantityvalue);
-
     products.productId = data._id
     products.img = data.img
     products.price = quantV
@@ -130,8 +128,62 @@ export class ProductsCategoriesComponent implements OnInit {
 
 
 
-  buy(id: any) {
-    console.log("Product_id_Buy", id);
+
+
+
+  // buy(id: any) {
+  //   console.log("Product_id_Buy", id);
+  // }
+
+
+  buy(data: any) {
+    if (this.quantityvalue == undefined && this.quantityvalue == null) {
+      this.quantityvalue = 1
+    }
+    var userid = this.loginservice.getuserid()
+    console.log("userid", userid);
+    console.log("Product", data);
+    var products = {
+      productId: "",
+      quantity: "",
+      img: "",
+      price: "",
+      title: ""
+    }
+    var quantV: any
+    // this.quantityvalue = (<HTMLInputElement>document.getElementById("quantityselect")).value;
+    if (this.quantityvalue == 1) {
+      quantV = data.price * 1
+    }
+    else if (this.quantityvalue == 2) {
+      quantV = data.price * 2
+    }
+    else if (this.quantityvalue == 3) {
+      quantV = data.price * 3
+    }
+    else if (this.quantityvalue == 4) {
+      quantV = data.price * 4
+    }
+    else if (this.quantityvalue == 5) {
+      quantV = data.price * 5
+    }
+    else {
+
+    }
+    console.log(this.quantityvalue);
+    products.productId = data._id
+    products.img = data.img
+    products.price = quantV
+    products.title = data.title
+    products.quantity = this.quantityvalue
+    console.log("products", products);
+
+    this.productsService.addcart(userid, products).subscribe(responseList => {
+      this.finalAddcartResponse = responseList;
+      console.log("Api Response=", this.finalAddcartResponse);
+      quantV = []
+      this.quantityvalue = 1
+    })
   }
 
 
