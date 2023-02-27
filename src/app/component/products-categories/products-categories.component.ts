@@ -138,33 +138,22 @@ export class ProductsCategoriesComponent implements OnInit {
 
 
   lowtohigh() {
-    console.log("lowtohigh");  
-  
+    // console.log("lowtohigh");
+    this.productsService.getproductcategorywise(this.category).subscribe(responseList => {
+      this.finalProducts = responseList
+      let newdata = this.finalProducts.sort((a: any, b: any) => a.price - b.price)
+      this.finalProducts = newdata
+    })
   }
 
   hightolow() {
-    console.log("hightolow");
-   
+    // console.log("hightolow");
+    this.productsService.getproductcategorywise(this.category).subscribe(responseList => {
+      this.finalProducts = responseList
+      let newdata = this.finalProducts.sort((a: any, b: any) => b.price - a.price)
+      this.finalProducts = newdata
+    })
   }
-
-
-
-  //quantity selection
-  // quant = 0;
-  // decrease() {
-  //   --this.quant;     //increment the value by one  x=x+1
-  //   console.log(this.quant)
-  // }
-  // increase() {
-  //   ++this.quant;     //increment the value by one  x=x+1
-  //   console.log(this.quant)
-  // }
-
-  //end quantity
-
-
-
-
 
 
 
