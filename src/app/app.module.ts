@@ -16,6 +16,7 @@ import { AddproductsComponent } from './component/admin/addproducts/addproducts.
 import { PaymentComponent } from './component/payment/payment.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { AddressComponent } from './component/address/address.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     AddtobuyComponent,
     AddproductsComponent,
     PaymentComponent,
+    AddressComponent,
     
     
   ],

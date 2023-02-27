@@ -1,0 +1,100 @@
+<div class="row" style="height: 50px;background-color: rgb(57, 124, 184);">
+    <a routerLink="/products">
+        <img style="width: 120px;height: 30px;padding-top: 10px;padding-left: 20px;" src="../../../assets/fklogo.png">
+    </a>
+</div>
+
+
+
+
+<div class="container">
+
+    <div class="card">
+        <div class="card-header">
+            <h4><a routerLink="/addtobuy" style="font-size: large;">←</a>Address</h4>
+        </div>
+        <div class="card-body">
+            <form [formGroup]="addaddress" (ngSubmit)="submit();reset()">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div style="margin-top: 5px;">
+                            <label for="exampleInputEmail1" class="form-label">Room No</label>
+                            <input type="number" placeholder="Room No" class="form-control" formControlName="roomno"
+                                onkeypress="if(this.value.length==10) return false;">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div style="margin-top: 5px;">
+                            <label for="exampleInputEmail1" class="form-label">Building Name</label>
+                            <input type="text" placeholder="Building Name" class="form-control"
+                                formControlName="buildname" onkeypress="if(this.value.length==50) return false;">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div style="margin-top: 5px;">
+                            <label for="exampleInputEmail1" class="form-label">Address Line 1</label>
+                            <input type="text" placeholder="Address Line 1" class="form-control"
+                                formControlName="address1" onkeypress="if(this.value.length==100) return false;">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div style="margin-top: 5px;">
+                            <label for="exampleInputEmail1" class="form-label">Address Line 2</label>
+                            <input type="text" placeholder="Address Line 2" class="form-control"
+                                formControlName="address2" onkeypress="if(this.value.length==100) return false;">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div style="margin-top: 5px;">
+                            <label for="exampleInputEmail1" class="form-label">Landmark</label>
+                            <input type="text" placeholder="Landmark" class="form-control" formControlName="landmark"
+                                onkeypress="if(this.value.length==20) return false;">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div style="margin-top: 5px;">
+                            <label for="exampleInputEmail1" class="form-label">Pincode</label>
+                            <input type="number" placeholder="Pin Code" class="form-control" formControlName="pincode"
+                                onkeypress="if(this.value.length==6) return false;">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div style="margin-top: 5px;">
+                            <label for="exampleInputEmail1" class="form-label">Stete</label>
+                            <select class="form-control" formControlName="categories">
+                                <option [value]="item" [id]="item" *ngFor="let item of compare_list">
+                                    {{ item }}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div style="margin-top: 5px;">
+                            <label for="exampleInputEmail1" class="form-label">Phone</label>
+                            <input type="number" placeholder="Phone No" class="form-control" formControlName="phone"
+                                onkeypress="if(this.value.length==12) return false;">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+
+                    </div>
+                </div>
+
+
+
+                <div style="padding-top: 20px;text-align: center;">
+                    <button type="submit" class="btn btn-success" style="width: 50%;">Add</button>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+
+</div>

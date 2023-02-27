@@ -46,6 +46,7 @@ export class AddtobuyComponent implements OnInit {
   }
 
   checkout(){
+    this.router.navigate(["address"])
 
   }
 

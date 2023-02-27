@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddressComponent } from './component/address/address.component';
 import { AddtobuyComponent } from './component/addtobuy/addtobuy.component';
 import { AddproductsComponent } from './component/admin/addproducts/addproducts.component';
 import { LoginComponent } from './component/login/login.component';
@@ -49,6 +50,10 @@ const routes: Routes = [
     path: 'payment',
     component: PaymentComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'address',
+    component: AddressComponent,
   },
 ];
 
