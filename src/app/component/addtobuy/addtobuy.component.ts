@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AddtobuyService } from 'src/app/services/addtobuy.service';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-addtobuy',
@@ -11,7 +12,7 @@ export class AddtobuyComponent implements OnInit {
 
 
 
-  constructor(private addtobuy: AddtobuyService, private router: Router) { }
+  constructor(private addtobuy: AddtobuyService, private router: Router,private loginservice:LoginService) { }
 
 
   finaltotal: any = [];
@@ -47,7 +48,6 @@ export class AddtobuyComponent implements OnInit {
 
   checkout(){
     this.router.navigate(["address"])
-
   }
 
 

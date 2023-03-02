@@ -54,7 +54,7 @@ const routes: Routes = [
   {
     path: 'address',
     component: AddressComponent,
-  },
+  }
 ];
 
 @NgModule({

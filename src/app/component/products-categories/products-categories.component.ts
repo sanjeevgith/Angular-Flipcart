@@ -128,14 +128,6 @@ export class ProductsCategoriesComponent implements OnInit {
 
 
 
-
-
-
-  // buy(id: any) {
-  //   console.log("Product_id_Buy", id);
-  // }
-
-
   buy(data: any) {
     if (this.quantityvalue == undefined && this.quantityvalue == null) {
       this.quantityvalue = 1
