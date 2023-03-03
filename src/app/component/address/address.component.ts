@@ -20,14 +20,13 @@ export class AddressComponent implements OnInit {
 
 
   compare_list = ["Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal"]
-
+  data: any
   FinalResponseList: any
   userId: any
   amountpay: any
   ngOnInit(): void {
-
     this.addaddress = this.fb.group({
-      roomno:  [' ', [Validators.required]],
+      roomno: [' ', [Validators.required]],
       buildname: [' ', [Validators.required]],
       address1: [' ', [Validators.required]],
       address2: [' ', [Validators.required]],
@@ -40,8 +39,20 @@ export class AddressComponent implements OnInit {
     this.amountpay = localStorage.getItem("finalprice")
     // console.log(this.userId);
     // console.log(this.amountpay);
-
+    this.getproductdata();
   }
+
+
+  statevalue: any
+  compareChange(event: any) {
+    var data = event.target.value;
+    //console.log(data);
+    this.statevalue = data
+    this.addaddress.patchValue({
+      state: this.statevalue
+    });
+  }
+
 
 
   get addaddresscontrols() {
@@ -51,27 +62,41 @@ export class AddressComponent implements OnInit {
   addfinalresponse: any
   submit() {
     var myusername = (<HTMLInputElement>document.getElementById("roomno")).value;
-    console.log(myusername);
-    
-    if(myusername == null && myusername==''){
-      this.adsressservice.addaddress(this.userId, this.amountpay, this.addaddress.value).subscribe(responseList => {
+    // console.log(myusername);
+    if (myusername != null && myusername != '') {
+      this.adsressservice.addaddress(this.userId, this.amountpay, this.addaddress.value, this.arraydata).subscribe(responseList => {
         this.addfinalresponse = responseList;
-          this.router.navigate(["payment"])
+        this.router.navigate(["payment"])
       })
     }
-    else{
+    else {
       alert("Please Fill All Required Value")
     }
-     
-
-    
   }
 
   reset() {
     this.addaddress.reset()
   }
 
-   
+
+
+  Finalproduct: any
+  arraydata: any = []
+  getproductdata() {
+    this.addtobuy.getCartProduct().subscribe(responseList => {
+      this.Finalproduct = responseList;
+      console.log(this.Finalproduct);
+      for (let i = 0; i < this.Finalproduct.length; i++) {
+        for (let j = 0; j < this.Finalproduct[i].products.length; j++) {
+          var mergedata = this.Finalproduct[i].products
+          this.arraydata.push(mergedata)
+        }
+      }
+      console.log(this.arraydata);
+    })
+  }
+
+
 
 
 

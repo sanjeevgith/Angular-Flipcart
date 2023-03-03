@@ -30,7 +30,7 @@
                     <div class="col-md-4">
                         <div style="margin-top: 5px;">
                             <label for="exampleInputEmail1" class="form-label">Building Name</label>
-                            <input type="text" placeholder="Building Name" class="form-control"
+                            <input type="text" placeholder="Building Name" class="form-control" id="buildname"
                                 formControlName="buildname" onkeypress="if(this.value.length==50) return false;">
                             <div *ngIf="addaddresscontrols['buildname'].touched  && addaddresscontrols['buildname'].errors?.['required']"
                                 class="a-red rem-0-8">
@@ -41,7 +41,7 @@
                     <div class="col-md-4">
                         <div style="margin-top: 5px;">
                             <label for="exampleInputEmail1" class="form-label">Address Line 1</label>
-                            <input type="text" placeholder="Address Line 1" class="form-control"
+                            <input type="text" placeholder="Address Line 1" class="form-control" id="address1"
                                 formControlName="address1" onkeypress="if(this.value.length==100) return false;">
                                 <div *ngIf="addaddresscontrols['address1'].touched  && addaddresscontrols['address1'].errors?.['required']"
                                 class="a-red rem-0-8">
@@ -78,7 +78,7 @@
                     <div class="col-md-4">
                         <div style="margin-top: 5px;">
                             <label for="exampleInputEmail1" class="form-label">Pincode</label>
-                            <input type="number" placeholder="Pin Code" class="form-control" formControlName="pincode"
+                            <input type="number" placeholder="Pin Code" class="form-control" formControlName="pincode" id="pincode"
                                 onkeypress="if(this.value.length==6) return false;">
                                 <div *ngIf="addaddresscontrols['pincode'].touched  && addaddresscontrols['pincode'].errors?.['required']"
                                 class="a-red rem-0-8">
@@ -91,8 +91,9 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div style="margin-top: 5px;">
-                            <label for="exampleInputEmail1" class="form-label">Stete</label>
-                            <select class="form-control" formControlName="categories">
+                            <label for="exampleInputEmail1" class="form-label">State</label>
+                            <select  (change)="compareChange($event);"  class="form-control" formControlName="categories">
+                                <option [ngValue]="undefined" [disabled]="true">Choose State</option>
                                 <option [value]="item" [id]="item" *ngFor="let item of compare_list">
                                     {{ item }}</option>
                             </select>
@@ -102,7 +103,7 @@
                     <div class="col-md-4">
                         <div style="margin-top: 5px;">
                             <label for="exampleInputEmail1" class="form-label">Phone</label>
-                            <input type="number" placeholder="Phone No" class="form-control" formControlName="phone"
+                            <input type="number" placeholder="Phone No" class="form-control" formControlName="phone" id="phone"
                                 onkeypress="if(this.value.length==12) return false;">
                                 <div *ngIf="addaddresscontrols['phone'].touched  && addaddresscontrols['phone'].errors?.['required']"
                                 class="a-red rem-0-8">
