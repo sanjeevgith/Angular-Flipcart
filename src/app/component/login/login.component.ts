@@ -53,7 +53,6 @@ export class LoginComponent implements OnInit {
       (<HTMLInputElement>document.getElementById("username")).value = "";
       (<HTMLInputElement>document.getElementById("password")).value = "";
 
-      // console.log(this.loginresponse.isAdmin);
       localStorage.setItem("admin", this.loginresponse.isAdmin)
 
       //getusername for labal

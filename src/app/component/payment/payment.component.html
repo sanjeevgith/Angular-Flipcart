@@ -25,6 +25,7 @@
 
         </div>
         <div class="card-body">
+            <form [formGroup]="payment" (ngSubmit)="sendcarddata()">
             <div>
                 <p>Amount : {{amountpay}}</p>
             </div>
@@ -32,7 +33,7 @@
                 <label>CARD NUMBER</label>
             </div>
             <div>
-                <input class="form-control" type="number" placeholder="XXXX XXXX XXXX XXXX"
+                <input class="form-control" type="number" placeholder="XXXX XXXX XXXX XXXX" formControlName="cardNumber"
                     onkeypress="if(this.value.length==16) return false;">
             </div>
 
@@ -42,7 +43,7 @@
                         <label>EXPIRATION DATE</label>
                     </div>
                     <div>
-                        <input class="form-control" type="tel" placeholder="MM / YY"
+                        <input class="form-control" type="tel" placeholder="MM / YY" formControlName="expDate"
                             onkeypress="if(this.value.length==5) return false;">
                     </div>
                 </div>
@@ -51,7 +52,7 @@
                         <label>CV CODE</label>
                     </div>
                     <div>
-                        <input class="form-control" type="number" placeholder="CVC" min="1" max="999"
+                        <input class="form-control" type="number" placeholder="CVC" min="1" max="999" formControlName="cvCode"
                             onkeypress="if(this.value.length==3) return false;">
                     </div>
                 </div>
@@ -61,14 +62,15 @@
                 <label>COUPON CODE</label>
             </div>
             <div>
-                <input class="form-control" type="text" placeholder="SUWSW28828SH"
+                <input class="form-control" type="text" placeholder="SUWSW28828SH" formControlName="couponCode"
                     onkeypress="if(this.value.length==12) return false;">
             </div>
 
             <div class="mt-3">
-                <button type="button" class="btn btn-success" (click)="paypopup()"
+                <button type="submit" class="btn btn-success" (click)="paypopup()"
                     style="width: 100%;border: none;height: 40px;border-radius: 5px;">Pay Now</button>
             </div>
+            </form>
         </div>
     </div>
 
