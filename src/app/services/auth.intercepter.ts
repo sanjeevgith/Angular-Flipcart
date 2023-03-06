@@ -12,9 +12,9 @@ export class AuthInterceptor implements HttpInterceptor {
         let newReq = req;
         let token = this.login.getToken()
 
-        console.log("intercepter", token);
+       // console.log("intercepter", token);
         if (token != null) {
-            console.log("tokeen is not null");
+            //console.log("tokeen is not null");
             newReq = newReq.clone({
                 setHeaders: {
                     token: `bearer ${token}`

@@ -7,12 +7,10 @@ import { LoginService } from './login.service';
 })
 export class MyorderService {
 
-  constructor(private http: HttpClient, private loginservice: LoginService) { }
+  constructor(private http: HttpClient) { }
 
 
 
-  auth_token = this.loginservice.getToken();
-  headers = new HttpHeaders().set('token', `bearer ${this.auth_token}`);
 
 
   getorderdata(userId: any) {

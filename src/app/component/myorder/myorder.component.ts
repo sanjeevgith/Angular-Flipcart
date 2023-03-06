@@ -7,11 +7,11 @@ import { MyorderService } from 'src/app/services/myorder.service';
   templateUrl: './myorder.component.html',
   styleUrls: ['./myorder.component.scss']
 })
-export class MyorderComponent implements OnInit{
+export class MyorderComponent implements OnInit {
 
 
 
-  constructor(private myorderservice:MyorderService,private loginservice:LoginService){}
+  constructor(private myorderservice: MyorderService, private loginservice: LoginService) { }
 
 
 
@@ -21,13 +21,21 @@ export class MyorderComponent implements OnInit{
   }
 
 
-
-  finalmyorderdata:any
-  getmyorder(){
+  displaydata: any
+  status: any
+  finalmyorderdata: any
+  getmyorder() {
     var userid = this.loginservice.getuserid()
-    this.myorderservice.getorderdata(userid).subscribe(responseList=>{
+    this.myorderservice.getorderdata(userid).subscribe(responseList => {
       this.finalmyorderdata = responseList;
-      console.log(this.finalmyorderdata);
+      this.status =this.finalmyorderdata[0].status
+      console.log(this.finalmyorderdata[0].products);
+      for (let j = 0; j < this.finalmyorderdata.length; j++) {
+        for (let i = 0; i < this.finalmyorderdata[j].products.length; i++) {
+          this.displaydata = this.finalmyorderdata[j].products
+        }
+      } 
+     // console.log(this.displaydata);
     })
   }
 
