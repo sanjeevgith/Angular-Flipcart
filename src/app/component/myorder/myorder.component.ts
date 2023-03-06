@@ -28,14 +28,16 @@ export class MyorderComponent implements OnInit {
     var userid = this.loginservice.getuserid()
     this.myorderservice.getorderdata(userid).subscribe(responseList => {
       this.finalmyorderdata = responseList;
-      this.status =this.finalmyorderdata[0].status
-      console.log(this.finalmyorderdata[0].products);
-      for (let j = 0; j < this.finalmyorderdata.length; j++) {
-        for (let i = 0; i < this.finalmyorderdata[j].products.length; i++) {
-          this.displaydata = this.finalmyorderdata[j].products
-        }
-      } 
-     // console.log(this.displaydata);
+      console.log( this.finalmyorderdata);
+      
+      // this.status =this.finalmyorderdata[0].status
+      // for (let j = 0; j < this.finalmyorderdata.length; j++) {
+      //   console.log(this.finalmyorderdata[j].products);
+      //   for (let i = 0; i < this.finalmyorderdata[j].products.length; i++) {
+      //     this.displaydata = this.finalmyorderdata[j].products
+      //   }
+      // } 
+      // console.log(this.displaydata);
     })
   }
 

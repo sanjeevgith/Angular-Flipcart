@@ -11,7 +11,7 @@
         <div class="card-header">
             <h5><a routerLink="/products" style="font-size: large;">←</a>MY ORDER</h5>
         </div>
-        <div class="card-body">
+        <!-- <div class="card-body">
             <table style="width: 100%;">
                 <tbody *ngFor="let data1 of displaydata">
                     <tr>
@@ -25,9 +25,9 @@
                             INR- {{data1[0].price}}
                         </td>
                         <td style="width:auto;">
-                            <div *ngIf="status =='pending'" style="background-color: rgb(207, 117, 117);">Status:
+                            <div *ngIf="status =='pending'" style="background-color: rgb(207, 117, 117);padding: 5px;border-radius: 5px;">Status:
                                 {{status}}</div>
-                            <div *ngIf="status =='accepted'" style="background-color: rgb(119, 170, 119);">Status:
+                            <div *ngIf="status =='accepted'" style="background-color: rgb(119, 170, 119);padding: 5px;border-radius: 5px;">Status:
                                 {{status}}</div>
                         </td>
                     </tr>
@@ -38,13 +38,52 @@
                         <td>&nbsp;</td>
                         <td>&nbsp;</td>
                         <td>
-                            <!-- <button (click)="removeproduct(data._id)"
-                                    style="border: none;height: 35px;width: 100px;background-color: rgb(109, 189, 233);">Remove</button> -->
                         </td>
                     </tr>
 
                 </tbody>
             </table>
+        </div> -->
+        <div class="card" *ngFor="let data of finalmyorderdata;let i=index"
+            style="background-color: rgb(247, 250, 251);">
+            <div class="card-body">
+                <p *ngIf="data.status =='pending'"  style="background-color: rgb(220, 149, 149);">
+                    STATUS : {{data.status}}
+                </p>
+                <p *ngIf="data.status =='accepted'"  style="background-color: rgb(149, 200, 220);">
+                    STATUS : {{data.status}}
+                </p>
+                <p *ngIf="data.status =='delivered'"  style="background-color: rgb(149, 220, 177);">
+                    STATUS : {{data.status}}
+                </p>
+                <table>
+                    <tbody *ngFor="let data1 of data.products">
+                        <tr>
+                            <td>
+                                <img src={{data1[0].img}} alt="" style="height: 100px;width: 100px;">
+                            </td>
+                            <td style="width: 400px;">
+                                {{data1[0].title}}
+                            </td>
+                            <td>&nbsp;</td>
+                            <td>
+                                INR- {{data1[0].price}}
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td style="padding-right: 10px;padding-left: 10px;">
+                                Quantity:{{data1[0].quantity}}
+                            </td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
