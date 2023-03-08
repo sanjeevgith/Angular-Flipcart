@@ -2,6 +2,8 @@ import { HttpBackend, HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LoginService } from './login.service';
 
+import { AppSettings } from '../appsetting/app.setting';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,12 +13,20 @@ export class MyorderService {
 
 
 
-
-
   getorderdata(userId: any) {
     console.log(userId);
-    return this.http.get("http://localhost:5000/api/orders/findorder")
+    console.log(AppSettings.findorderbyuserid + userId);
+    
+    return this.http.get(AppSettings.findorderbyuserid + userId)
   }
+
+
+
+
+
+
+
+
 
 
 

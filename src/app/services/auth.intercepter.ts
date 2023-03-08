@@ -20,9 +20,9 @@ export class AuthInterceptor implements HttpInterceptor {
                     token: `bearer ${token}`
                 }
             })
-            console.log(newReq);
+           // console.log(newReq);
             
         }
         return next.handle(newReq)
-    }
+    }       
 }

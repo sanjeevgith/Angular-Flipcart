@@ -18,6 +18,7 @@ export class MyorderComponent implements OnInit {
 
   ngOnInit(): void {
     this.getmyorder();
+   // this.pageination();
   }
 
 
@@ -28,8 +29,8 @@ export class MyorderComponent implements OnInit {
     var userid = this.loginservice.getuserid()
     this.myorderservice.getorderdata(userid).subscribe(responseList => {
       this.finalmyorderdata = responseList;
-      console.log( this.finalmyorderdata);
-      
+      console.log(this.finalmyorderdata);
+
       // this.status =this.finalmyorderdata[0].status
       // for (let j = 0; j < this.finalmyorderdata.length; j++) {
       //   console.log(this.finalmyorderdata[j].products);
@@ -40,6 +41,26 @@ export class MyorderComponent implements OnInit {
       // console.log(this.displaydata);
     })
   }
+
+
+
+
+
+
+
+
+  // p: any
+  // collection: any = [];
+  // pageination() {
+  //   for (let i = 1; i <= 100; i++) {
+  //     this.collection.push(`item ${i}`);
+  //   }
+  // }
+
+
+
+
+
 
 
 

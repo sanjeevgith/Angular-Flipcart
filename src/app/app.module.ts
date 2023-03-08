@@ -20,6 +20,7 @@ import { AddressComponent } from './component/address/address.component';
 import { CommonModule } from '@angular/common';
 import { MyorderComponent } from './component/myorder/myorder.component';
 import { AuthInterceptor } from './services/auth.intercepter';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { AuthInterceptor } from './services/auth.intercepter';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     NgxSpinnerModule,
-    CommonModule
+    CommonModule,
+    NgxPaginationModule
 
     
   ],
