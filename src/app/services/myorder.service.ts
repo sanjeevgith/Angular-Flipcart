@@ -14,9 +14,8 @@ export class MyorderService {
 
 
   getorderdata(userId: any) {
-    console.log(userId);
-    console.log(AppSettings.findorderbyuserid + userId);
-    
+    //console.log(userId);
+    //console.log(AppSettings.findorderbyuserid + userId);
     return this.http.get(AppSettings.findorderbyuserid + userId)
   }
 

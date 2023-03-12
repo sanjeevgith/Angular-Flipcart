@@ -27,9 +27,6 @@ export class AddtobuyComponent implements OnInit {
       this.FinalResponseList = responseList;
       // console.log("addtoCardDataByUserid", this.FinalResponseList);
       for (let i = 0; i < this.FinalResponseList.length; i++) {
-
-        localStorage.setItem("cartitemcount", this.FinalResponseList.length)
-
         this.inputBalanceQuantity = 0;
         for (let j = 0; j < this.FinalResponseList[i].products.length; j++) {
 

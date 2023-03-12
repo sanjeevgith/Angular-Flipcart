@@ -60,6 +60,7 @@ const routes: Routes = [
   {
     path: 'address',
     component: AddressComponent,
+    canActivate: [AuthGuard]
   }
 ];
 

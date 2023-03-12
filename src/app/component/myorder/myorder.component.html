@@ -11,39 +11,6 @@
         <div class="card-header">
             <h5><a routerLink="/products" style="font-size: large;">←</a>MY ORDER</h5>
         </div>
-        <!-- <div class="card-body">
-            <table style="width: 100%;">
-                <tbody *ngFor="let data1 of displaydata">
-                    <tr>
-                        <td>
-                            <img src={{data1[0].img}} alt="" style="height: 100px;width: 100px;">
-                        </td>
-                        <td style="width:auto;">
-                            {{data1[0].title}}
-                        </td>
-                        <td style="width:auto;">
-                            INR- {{data1[0].price}}
-                        </td>
-                        <td style="width:auto;">
-                            <div *ngIf="status =='pending'" style="background-color: rgb(207, 117, 117);padding: 5px;border-radius: 5px;">Status:
-                                {{status}}</div>
-                            <div *ngIf="status =='accepted'" style="background-color: rgb(119, 170, 119);padding: 5px;border-radius: 5px;">Status:
-                                {{status}}</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="padding-right: 10px;padding-left: 10px;">
-                            Quantity:{{data1[0].quantity}}
-                        </td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>
-                        </td>
-                    </tr>
-
-                </tbody>
-            </table>
-        </div> -->
         <div class="card" *ngFor="let data of finalmyorderdata;let i=index"
             style="background-color: rgb(247, 250, 251);">
             <div class="card-body">
@@ -71,8 +38,6 @@
                             <td style="padding-left: 5%;">
                                 OrderDate-{{data.createdAt|date}}
                             </td>
-
-
                         </tr>
                         <tr>
                             <td style="padding-right: 10px;padding-left: 10px;">
@@ -83,7 +48,6 @@
                             <td>
                             </td>
                         </tr>
-
                     </tbody>
                 </table>
             </div>

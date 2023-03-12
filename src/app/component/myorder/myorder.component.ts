@@ -30,15 +30,6 @@ export class MyorderComponent implements OnInit {
     this.myorderservice.getorderdata(userid).subscribe(responseList => {
       this.finalmyorderdata = responseList;
       console.log(this.finalmyorderdata);
-
-      // this.status =this.finalmyorderdata[0].status
-      // for (let j = 0; j < this.finalmyorderdata.length; j++) {
-      //   console.log(this.finalmyorderdata[j].products);
-      //   for (let i = 0; i < this.finalmyorderdata[j].products.length; i++) {
-      //     this.displaydata = this.finalmyorderdata[j].products
-      //   }
-      // } 
-      // console.log(this.displaydata);
     })
   }
 
