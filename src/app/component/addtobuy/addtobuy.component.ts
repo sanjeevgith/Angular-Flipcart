@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { AddtobuyService } from 'src/app/services/addtobuy.service';
 import { LoginService } from 'src/app/services/login.service';
 
@@ -12,7 +13,11 @@ export class AddtobuyComponent implements OnInit {
 
 
 
-  constructor(private addtobuy: AddtobuyService, private router: Router,private loginservice:LoginService) { }
+  typeSelected: string;
+
+  constructor(private spinnerService: NgxSpinnerService,private addtobuy: AddtobuyService, private router: Router,private loginservice:LoginService) {
+    this.typeSelected = 'line-spin-clockwise-fade';
+   }
 
 
   finaltotal: any = [];
@@ -21,10 +26,12 @@ export class AddtobuyComponent implements OnInit {
   inputBalanceQuantity: any = []
 
   getdata() {
+    this.spinnerService.show();
     this.plusedata = 0
     this.finaltotal = [];
     this.addtobuy.getCartProduct().subscribe(responseList => {
       this.FinalResponseList = responseList;
+      this.spinnerService.hide();
       // console.log("addtoCardDataByUserid", this.FinalResponseList);
       for (let i = 0; i < this.FinalResponseList.length; i++) {
         this.inputBalanceQuantity = 0;

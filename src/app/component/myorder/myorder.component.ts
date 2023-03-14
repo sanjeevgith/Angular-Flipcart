@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { LoginService } from 'src/app/services/login.service';
 import { MyorderService } from 'src/app/services/myorder.service';
 
@@ -10,8 +11,11 @@ import { MyorderService } from 'src/app/services/myorder.service';
 export class MyorderComponent implements OnInit {
 
 
+  typeSelected: string;
 
-  constructor(private myorderservice: MyorderService, private loginservice: LoginService) { }
+  constructor(private spinnerService: NgxSpinnerService,private myorderservice: MyorderService, private loginservice: LoginService) { 
+    this.typeSelected = 'line-spin-clockwise-fade';
+  }
 
 
 
@@ -26,9 +30,11 @@ export class MyorderComponent implements OnInit {
   status: any
   finalmyorderdata: any
   getmyorder() {
+    this.spinnerService.show();
     var userid = this.loginservice.getuserid()
     this.myorderservice.getorderdata(userid).subscribe(responseList => {
       this.finalmyorderdata = responseList;
+      this.spinnerService.hide();
       console.log(this.finalmyorderdata);
     })
   }

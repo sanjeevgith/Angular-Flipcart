@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { LoginService } from 'src/app/services/login.service';
 import { ProductsService } from 'src/app/services/products.service';
 
@@ -12,9 +13,11 @@ export class ProductsCategoriesComponent implements OnInit {
 
 
 
+ typeSelected: string;
 
-
-  constructor(private productsService: ProductsService, private loginservice: LoginService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private spinnerService: NgxSpinnerService,private productsService: ProductsService, private loginservice: LoginService, private router: Router, private route: ActivatedRoute) { 
+    this.typeSelected = 'line-spin-clockwise-fade';
+  }
 
 
 
@@ -32,17 +35,21 @@ export class ProductsCategoriesComponent implements OnInit {
       console.log("search response", newdata);
       //search by input value
       if (newdata != null && newdata != undefined) {
+        this.spinnerService.show();
         this.productsService.getproductcategorywise(newdata).subscribe(responseList => {
           this.finalProducts = responseList
+          this.spinnerService.hide();
           console.log("search response", this.finalProducts);
         })
       }
       //top product search
       else if (this.category == "true") {
+        this.spinnerService.show();
         this.searchTopProducts()
       }
       //search by category icon
       else if (this.category != null && this.category != undefined) {
+        this.spinnerService.show();
         this.finalProducts = []
         this.searchProductsBycategory()
         if(this.category == "travel"){
@@ -58,6 +65,7 @@ export class ProductsCategoriesComponent implements OnInit {
   searchProductsBycategory() {
     this.productsService.getproductcategorywise(this.category).subscribe(responseList => {
       this.finalProducts = responseList
+      this.spinnerService.hide();
       console.log("my categories", this.finalProducts);
     })
   }
@@ -66,6 +74,7 @@ export class ProductsCategoriesComponent implements OnInit {
   searchTopProducts() {
     this.productsService.getlatestproductcategorywise(this.category).subscribe(responseList => {
       this.finalProducts = responseList
+      this.spinnerService.hide();
       console.log("this.finalProducts top 15", this.finalProducts);
     })
   }
