@@ -18,6 +18,8 @@ export class ProductsCategoriesComponent implements OnInit {
 
 
 
+  travel = false
+
   compare_list = [2, 3, 4, 5]
   addtocarttext = "Add to cart";
   category: any
@@ -28,18 +30,24 @@ export class ProductsCategoriesComponent implements OnInit {
     this.route.params.subscribe(params => {
       var newdata = params['searchdata'];
       console.log("search response", newdata);
+      //search by input value
       if (newdata != null && newdata != undefined) {
         this.productsService.getproductcategorywise(newdata).subscribe(responseList => {
           this.finalProducts = responseList
           console.log("search response", this.finalProducts);
         })
       }
+      //top product search
       else if (this.category == "true") {
         this.searchTopProducts()
       }
+      //search by category icon
       else if (this.category != null && this.category != undefined) {
         this.finalProducts = []
         this.searchProductsBycategory()
+        if(this.category == "travel"){
+          this.travel = true
+        }
       }
     });
 

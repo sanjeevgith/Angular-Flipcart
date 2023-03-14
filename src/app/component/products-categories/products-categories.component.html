@@ -35,6 +35,9 @@
             </div>
         </div>
         <div class="col-md-9">
+            <div *ngIf="travel">
+                <h3>Function Not Implemented !</h3>
+            </div>
             <div class="card" *ngFor="let data of finalProducts "
                 style="background-color: rgb(246, 241, 241);margin-bottom: 10px;">
                 <div class="card-body">

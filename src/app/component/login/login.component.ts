@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { LoginService } from 'src/app/services/login.service';
@@ -71,6 +71,9 @@ export class LoginComponent implements OnInit {
       this.usernameLabel = name
     })
   }
+
+
+  
   clear() {
 
   }
