@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { AddproductsService } from '../addproducts.service';
+import { AddproductsService } from '../adminservices/addproducts.service';
+
 
 @Component({
   selector: 'app-addproducts',
@@ -32,7 +33,7 @@ export class AddproductsComponent implements OnInit {
 
     this.admin = localStorage.getItem("admin")
     if (this.admin == "true") {
-       alert("Wlcome to admin page")
+      //  alert("Wlcome to admin page")
     }
     else{
       this.router.navigate(["products"])

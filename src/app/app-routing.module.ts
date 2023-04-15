@@ -42,11 +42,11 @@ const routes: Routes = [
     component: AddtobuyComponent,
     canActivate: [AuthGuard]
   },
-  {
-    path: 'addproducts',
-    component: AddproductsComponent,
-    canActivate: [AuthGuard]
-  },
+  // {
+  //   path: 'addproducts',
+  //   component: AddproductsComponent,
+  //   canActivate: [AuthGuard]
+  // },
   {
     path: 'payment',
     component: PaymentComponent,
@@ -61,7 +61,13 @@ const routes: Routes = [
     path: 'address',
     component: AddressComponent,
     canActivate: [AuthGuard]
-  }
+  },
+  {
+    path: 'admindashboard',
+    loadChildren: () =>
+      import(`./component/admin/admin/admin.module`).then((m) => m.AdminModule),
+      canActivate: [AuthGuard]
+  },
 ];
 
 @NgModule({

@@ -5,6 +5,17 @@
     <div class="row">
         <div class="col-md-8">
 
+
+
+            <div class="card" *ngIf="FinalResponseList == 0" style="text-align: center;">
+                <div class="card-body">
+                    <h3>Cart is Empty!</h3>
+                    <img src="https://statementclothing.net/images/cart.gif" alt="" style="height: 200px;width: 200px;"><br>
+                    <a  routerLink="/products">Continue Shopping</a>
+                </div>
+            </div>
+            
+
             <div class="card" *ngFor="let data of FinalResponseList;let i=index"
                 style="background-color: rgb(247, 250, 251);">
                 <div class="card-body">
@@ -67,8 +78,8 @@
                         <tr>&nbsp;</tr>
                         <tr>
                             <!-- <a routerLink="/payment"> -->
-                                <button (click)="checkout()"
-                                    style="width: 112%;background-color: rgb(149, 196, 216);border: 1px solid;height: 50px;">Checkout</button>
+                            <button (click)="checkout()"
+                                style="width: 112%;background-color: rgb(149, 196, 216);border: 1px solid;height: 50px;">Checkout</button>
                             <!-- </a> -->
                         </tr>
                     </tbody>
@@ -82,6 +93,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
 <ngx-spinner size="medium" [type]="typeSelected">
     <!-- <p style="color: aliceblue;">Do Not Close or Refresh Page!</p> -->
 </ngx-spinner>
+

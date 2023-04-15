@@ -12,7 +12,6 @@ import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductsCategoriesComponent } from './component/products-categories/products-categories.component';
 import { AddtobuyComponent } from './component/addtobuy/addtobuy.component';
-import { AddproductsComponent } from './component/admin/addproducts/addproducts.component';
 import { PaymentComponent } from './component/payment/payment.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxSpinnerModule } from 'ngx-spinner';
@@ -21,6 +20,8 @@ import { CommonModule } from '@angular/common';
 import { MyorderComponent } from './component/myorder/myorder.component';
 import { AuthInterceptor } from './services/auth.intercepter';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { UpdateorderComponent } from './component/admin/updateorder/updateorder.component';
+import { EditadmindetailsComponent } from './component/admin/editadmindetails/editadmindetails.component';
 
 @NgModule({
   declarations: [
@@ -32,12 +33,12 @@ import { NgxPaginationModule } from 'ngx-pagination';
     NavbarComponent,
     ProductsCategoriesComponent,
     AddtobuyComponent,
-    AddproductsComponent,
     PaymentComponent,
     AddressComponent,
     MyorderComponent,
-    
-    
+    UpdateorderComponent,
+    EditadmindetailsComponent,
+
   ],
   imports: [
     BrowserModule,

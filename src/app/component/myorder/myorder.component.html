@@ -11,6 +11,9 @@
         <div class="card-header">
             <h5><a routerLink="/products" style="font-size: large;">←</a>MY ORDER</h5>
         </div>
+        <div class="card" style="text-align: center;" *ngIf="finalmyorderdata == 0">
+            <h3>No Order Yet</h3>
+        </div>
         <div class="card" *ngFor="let data of finalmyorderdata;let i=index"
             style="background-color: rgb(247, 250, 251);">
             <div class="card-body">
